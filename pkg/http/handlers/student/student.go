@@ -47,6 +47,23 @@ func New(storage storage.Storage) http.HandlerFunc {
 }
 
 
+func GetStudentList(storage storage.Storage) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		students, err := storage.GetStudentList()
+
+		
+
+		if err != nil {
+			response.WriteJSON(w, false, http.StatusInternalServerError, nil)
+			return
+		}
+
+		response.WriteJSON(w, true,http.StatusOK, students)
+
+	}
+}
+
 func GetById(storage storage.Storage) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		id := r.PathValue("id")
