@@ -3,7 +3,6 @@ package sqlite
 import (
 	"database/sql"
 	"fmt"
-	"log/slog"
 
 	"github.com/abtahihasan/students-api/pkg/config"
 	"github.com/abtahihasan/students-api/pkg/types"
@@ -118,7 +117,6 @@ func (s *SQlite) GetStudentList() ([]types.Student, error) {
 		if err != nil {
 			return nil, err
 		}
-		slog.Info("student", slog.Any("student", student))
 		students = append(students, student);
 
 	}
