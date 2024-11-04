@@ -4,7 +4,7 @@ type Student struct {
 	ID    string `json:"id"`
 	Name  string `json:"name" validate:"required"`
 	Email string `json:"email" validate:"email"`
-	Age   int    `json:"age" validate:"required"`
+	Age   int64   `json:"age" validate:"required"`
 }
 
 type Response struct {
